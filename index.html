@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fedrick Larsson — Portfolio</title>
+<meta name="description" content="Portfolio of Fedrick Larsson, Information Systems student (Accounting & Audit) at BINUS University, Jakarta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+:root{--m:#7a0c07;--ink:#1a1a1a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#7a0c07;scroll-behavior:smooth}
+body{font-family:Poppins,system-ui,sans-serif;color:#fff;min-height:100vh;background:linear-gradient(180deg,#f5b342 0,#e5963a 14%,#b9501f 45%,#7a0c07 80%);padding:0 clamp(12px,3.2vw,48px) 40px}
+img{display:block;max-width:100%}
+a{color:inherit}
+/* nav */
+nav{position:sticky;top:10px;z-index:20;margin-top:10px;background:var(--m);border-radius:14px;box-shadow:0 8px 18px rgba(0,0,0,.3);display:flex;justify-content:space-between;gap:6px;padding:10px;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{flex:1 0 auto;font:500 clamp(.85rem,1.7vw,1.45rem)/1.2 Poppins,sans-serif;color:#fff;background:none;border:2px solid transparent;border-radius:12px;padding:10px 18px;cursor:pointer;white-space:nowrap;text-shadow:1px 2px 3px rgba(0,0,0,.4)}
+nav button.on{border-color:#fff}
+nav button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+/* hero */
+.hero{text-align:center;padding-top:clamp(22px,4vw,56px)}
+.name{font-size:clamp(1.3rem,3.3vw,2.7rem);font-weight:700;letter-spacing:.22em;text-shadow:3px 3px 0 #000;margin-bottom:6px}
+.stage{position:relative;overflow:hidden;aspect-ratio:2.5/1}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 36%}
+.big{position:absolute;left:0;right:0;bottom:5%;z-index:1;font-weight:800;font-size:11.2vw;line-height:1;letter-spacing:.07em;color:var(--m);text-shadow:10px 10px 0 rgba(0,0,0,.28)}
+.stage .cut{z-index:2}
+.loc{text-align:left;font-weight:300;letter-spacing:.2em;font-size:clamp(.8rem,1.5vw,1.1rem);margin-top:8px}
+@media(max-width:700px){.stage{aspect-ratio:4/5}.stage img{object-position:50% 30%}.big{font-size:12.4vw;bottom:8%;text-shadow:5px 5px 0 rgba(0,0,0,.3)}.name{letter-spacing:.12em}}
+/* panels */
+.panel{display:none;margin-top:24px;scroll-margin-top:90px}
+.panel.on{display:block}
+.card{background:#fff;color:var(--ink);border-radius:24px;overflow:hidden;display:flex;flex-direction:column}
+.ch{background:var(--m);color:#fff;font-weight:700;font-size:clamp(1rem,1.7vw,1.35rem);text-align:center;padding:12px 16px}
+.cb{padding:12px 14px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.ph{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:4px}
+.t{color:var(--m);font-weight:700;font-size:1rem;line-height:1.35}
+.d{font-size:.88rem;line-height:1.5;text-align:justify}
+.grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));align-items:stretch}
+.grid.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+.row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.sub{color:var(--m);font-weight:700;font-size:.95rem}
+.wide{width:100%;height:auto;border-radius:4px}
+.ph2{display:flex;gap:10px;flex-wrap:wrap}.ph2 img{flex:1 1 140px;min-width:0;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+.ph2 .fit{aspect-ratio:auto;object-fit:contain}
+.d a{word-break:break-all;color:var(--ink)}
+ul.d{padding-left:1.3em;text-align:left}
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2.1fr);gap:22px 28px}
+.me{border-radius:24px;aspect-ratio:1/1;object-fit:cover;object-position:50% 20%;width:100%;background:#fff}
+.edu .cb{gap:14px}
+.ed{display:flex;gap:12px;align-items:center}
+.ed img{width:64px;height:64px;object-fit:contain;flex:none}
+.ed b{color:var(--m);font-size:1.02rem;display:block}.ed span{font-size:.88rem;display:block;line-height:1.4}
+h2{font-style:italic;font-weight:800;font-size:clamp(1.7rem,3.4vw,2.9rem);color:var(--m);line-height:1.1}
+h2 small{color:#fff;font-size:.62em;margin-right:.3em;font-weight:700}
+.bio{font-size:clamp(.95rem,1.55vw,1.28rem);line-height:1.65;font-weight:300;text-align:justify;margin:10px 0 18px}
+.trio{display:grid;grid-template-columns:1.05fr 1fr 1fr;gap:16px}
+.trio .card{border-radius:20px}
+.trio .ch{font-style:italic;background:#fff;color:var(--m);padding:10px;font-size:1.05rem}
+.bar{background:var(--m);color:#fff;font-weight:700;font-size:.78rem;padding:7px 12px}
+.sec{padding:10px 14px;font-size:.78rem;line-height:1.45}
+.sec b{color:var(--m);display:block;margin-bottom:3px}
+.sec ul{padding-left:1.4em}
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:14px 8px;align-items:center;justify-items:center;padding:18px 14px}
+.tools img{max-height:50px;max-width:100%;width:auto}
+.contact{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:14px 36px;align-items:center;font-size:.85rem;margin-top:6px}
+.contact a{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;overflow-wrap:anywhere}
+.contact svg{width:34px;height:34px;flex:none}
+@media(max-width:1000px){.trio{grid-template-columns:1fr 1fr}.trio .card:first-child{grid-column:1/-1}}
+@media(max-width:760px){.about{grid-template-columns:1fr}.me{aspect-ratio:4/4}.trio{grid-template-columns:1fr}.tools{grid-template-columns:repeat(4,1fr)}}
+/* certs */
+.certs .ch{font-size:clamp(1.4rem,3vw,2.2rem);font-weight:800;padding:16px}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:26px clamp(14px,4vw,50px)}
+.cg a{display:block;border-radius:4px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+.cg img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:top}
+@media(max-width:600px){.cg{grid-template-columns:1fr 1fr;gap:12px}}
+footer{text-align:center;font-weight:300;font-size:.75rem;margin-top:34px;opacity:.85}
+</style>
+</head>
+<body>
+
+<nav id="nav" aria-label="Sections"></nav>
+
+<header class="hero">
+  <h1 class="name">Fedrick Larsson</h1>
+  <div class="stage">
+    <img src="assets/hero.webp" alt="Fedrick Larsson">
+    <div class="big" aria-hidden="true">PORTFOLIO</div>
+    <img class="cut" src="assets/cutout.webp" alt="" aria-hidden="true">
+  </div>
+  <p class="loc">Jakarta, Indonesia</p>
+</header>
+
+<main id="main"></main>
+<footer>© 2026 Fedrick Larsson</footer>
+
+<script>
+/* ============ EDIT YOUR CONTENT HERE ============
+   Images live in /assets (e.g. 'o1a' = assets/o1a.webp). Replace or add files and update the names below. */
+const TABS = [['about','About me'],['org','Organizational'],['project','Project'],['pro','Professional'],['ach','Achievement & Certification']];
+
+const ORG = [
+ {h:'ISACA Student Group Binus', img:['o1a','o1b'], t:'Project Manager - “Decode The Future : AI Risk Fundamentals for Modern Auditors” Workshop', d:'Led the planning and execution of an AI risk workshop, coordinating the team, speakers, and event activities to deliver an engaging learning experience for participants.'},
+ {h:'ISACA Student Group Binus', img:['o2a','o2b'], t:'Project Advisor - “Arise Bootcamp : IT Audit Fundamentals”', d:'Supported the project team in planning and executing an IT Audit bootcamp, providing guidance to ensure the program aligned with its learning objectives and participants’ needs.'},
+ {h:'ISACA Student Group Binus', img:['o3a','o3b'], t:'Secretary & Treasurer - LDKCP 2026/2027', d:'Managed administrative records, documentation, and financial matters while supporting the organization’s activities and ensuring smooth coordination among members.'},
+ {h:'Information System Case Study Club', img:['o4a','o4b'], t:'Active Member - ISCSC Club', d:'Participated in case study activities focused on solving business and information systems problems, developing analytical thinking, problem-solving, and presentation skills through collaborative projects. Also, actively participated in various competitions, including Business Case Competition (BCC), Business Plan Competition (BPC), and UI/UX competitions.'},
+ {h:'ISACA Student Group Binus', img:['o5a','o5b'], t:'Master of Ceremony (MC) - Company Visit ISG Binus x KPMG Indonesia', d:'Served as the Master of Ceremony for a company visit between ISG BINUS and KPMG Indonesia, facilitating the event flow, introducing speakers, and maintaining audience engagement throughout the program.'},
+ {h:'Binusian Gaming', img:['o6a','o6b'], t:'Media & Documentation Division - Welcoming Party Binusian Gaming 2025', d:'Supported the event through media and documentation activities, capturing event moments and organizing documentation while coordinating with the committee to support smooth event execution.'}
+];
+
+const PROJECTS = [
+ {h:'Nudge - AI Based Application for Screen Time', s:'UI/UX Competition GEMASTIK XVIII 2026', img:'p1', d:'Nudge is an AI-powered gamification application designed to help Gen Z and young adults build healthier digital habits by managing excessive screen time. Using behavioral nudging, personalized plans, and gamification such as virtual pets, challenges, rewards, and social interaction, Nudge encourages users to reduce unnecessary screen time without feeling restricted.', link:'https://drive.google.com/file/d/1iSXdQpFsE409B9u9vbRCSDPvw2Su09Pl/view?usp=drivesdk'},
+ {h:'LiVit - Healthy Lifestyle Application', s:'UI/UX Lecture Class', img:'p2', d:'LiVit is a lifestyle application designed to help users build healthier daily habits through personalized health management. The application integrates nutrition and calorie tracking, physical activity recommendations, and sleep monitoring to support users in achieving their individual health goals.', link:'https://drive.google.com/file/d/1wo8KLM25F_uXo_Z_5cu1YC1PbuYm9Tab/view?usp=drivesdk'},
+ {h:'Hampiness - System Analysis & Design', s:'Information System Analysis & Design LAB class', img:'p3', d:'Hampiness is a System Analysis and Design project that focuses on designing an integrated digital platform for hampers ordering and management. As system analysts, we analyzed business processes and user requirements, then translated them into system models including Use Case, DFD, Sequence, Class, and Activity Diagrams, supported by a 3-tier Client/Server architecture.', link:'https://drive.google.com/file/d/1dIb_EM_khtTADfLjEQleI8mD3HjaLtQ9/view?usp=drivesdk'},
+ {h:'Vidaone - Advance Laundry Application', s:'', img:'p4', d:'Vidaone is a digital laundry management application designed to simplify laundry ordering and management for small laundry businesses and their customers. As Business and System Analysts, we analyzed business processes and user requirements, then translated them into system flows, use cases, and UI designs to create a more efficient and user-friendly laundry experience.', link:'https://drive.google.com/file/d/1GQyWlzmZbxUGvzTqDHnRurOHlF9mvZUj/view?usp=drivesdk'}
+];
+
+const PRO = [
+ {h:'SASC - 3x Times Mentoring Scholarship', org:'Student Advisory and Support Center BINUS', date:'2025-2026', img:['s1','s2','s3'],
+  ov:'Provided one-on-one peer mentoring to support mentees in understanding academic materials, completing assignments, and developing effective learning habits. Adapted mentoring approaches to individual learning needs while providing academic guidance and motivation.',
+  imp:['Improved mentees’ understanding of academic materials and supported their academic performance.','Encouraged mentees to become more proactive in asking questions and discussing their assignments.']},
+ {h:'Finance Administration Staff', org:'CV. Standard Sukses Abadi', date:'Juli - September 2026', img:['f1','f2'],
+  ov:'Managed and monitored financial transaction and expenditure records to maintain accurate and organized financial documentation. Supported budget control by tracking cash expenditures and ensuring spending remained aligned with planned allocations.',
+  imp:['Improved transparency and organization of financial tracking and expenditure records.','Increased awareness of budget utilization and supported more effective budget control.']}
+];
+
+const ACH = [
+ {h:'Author & Presenter - Publication ICITRI 2026', img:['a1','a2'], t:'International Conference on Information Technology Research and Innovation (ICITRI) 2026 - Nusa Mandiri University'},
+ {h:'1st Winner Economic Quiz Competition', img:['a3','a4'], t:'“Sustainability of Economics : Digital Innovation to Improve Economic Competitiveness in the Future” - Sekolah Tinggi Ilmu Ekonomi (STIE) Tanjungpinang University'},
+ {h:'3rd Winner Accounting Competition', img:['a5','a6'], t:'Teenage Accounting Competition (TAC) by Airlangga Accounting Competition - Faculty of Business and Economics Airlangga University'}
+];
+const CERTS = ['c1','c2','c3','c4','c5','c6','c7'];
+/* ============ END OF CONTENT ============ */
+
+const $ = (s,e=document)=>e.querySelector(s);
+const im = (n,c='ph',alt='')=>`<img class="${c}" src="assets/${n}.webp" alt="${alt}" loading="lazy">`;
+const esc = s=>s.replace(/&/g,'&amp;');
+
+const SVG = {
+ mail:'<svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="16" fill="#fff" stroke="#f5a23c" stroke-width="2"/><rect x="8" y="11" width="18" height="12" rx="1.5" fill="#f5a23c"/><path d="M9 12l8 6 8-6" stroke="#fff" stroke-width="1.6" fill="none"/></svg>',
+ tel:'<svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="16" fill="#fff"/><path d="M12 9l3 .5 1.2 3.4-1.7 1.4a9 9 0 004.2 4.2l1.4-1.7 3.4 1.2.5 3c-5.5 1.3-13.5-6.7-12-12z" fill="#7a0c07"/></svg>',
+ in:'<svg viewBox="0 0 34 34"><rect x="2" y="2" width="30" height="30" rx="3" fill="#fff"/><text x="17" y="26" text-anchor="middle" font-family="Poppins,Arial" font-weight="800" font-size="21" fill="#7a0c07">in</text></svg>',
+ ig:'<svg viewBox="0 0 34 34"><rect x="3" y="3" width="28" height="28" rx="8" fill="none" stroke="#fff" stroke-width="3"/><circle cx="17" cy="17" r="6.5" fill="none" stroke="#fff" stroke-width="3"/><circle cx="25" cy="9" r="1.8" fill="#fff"/></svg>'
+};
+
+const TOOLS = ['word','excel','canva','figma','python','mysql','sheets','oracle','html','php','notion'];
+const L = a=>'<ul>'+a.map(x=>`<li>${x}</li>`).join('')+'</ul>';
+
+function about(){return `
+<div class="about">
+  <div>
+    ${im('profile','me','Fedrick Larsson')}
+    <div class="card edu" style="margin-top:20px"><div class="ch">Education</div><div class="cb">
+      <div class="ed">${im('binus','','BINUS University')}<div><b>Binus University</b><span>Information System Accounting & Audit</span><span>GPA : 3.94/4.00</span></div></div>
+      <div class="ed">${im('t_sman','','SMAN 1 Tanjungpinang')}<div><b>SMAN 1 Tanjungpinang</b><span>Social Science (IPS)</span><span>Final Score : 94,2</span></div></div>
+    </div></div>
+  </div>
+  <div>
+    <h2><small>HEY!</small>I’M FEDRICK</h2>
+    <p class="bio">I am an Information Systems student with a strong interest in IT Audit, Business Analysis, System Analysis, and digital innovation. I enjoy analyzing problems, translating business needs into practical solutions, and exploring how technology can improve business processes. Through academic projects, competitions, organizational experiences, and research, I continue to develop my analytical, problem-solving, communication, and teamwork skills.</p>
+    <div class="trio">
+      <div class="card"><div class="ch">Core Competencies</div>
+        <div class="bar">Languages</div><div class="sec">Indonesia (Native), English, Mandarin (HSK 3 by Kusuma Learning Center), Chinese (Teochew)</div>
+        <div class="bar">Soft Skills & Interest</div>
+        <div class="sec"><b>Soft Skills</b>${L(['Communication','Teamwork & Collaboration','Leadership/Coordination','Problem Solving','Time Management','Analytical Thinking','Project Management'])}</div></div>
+      <div class="card"><div class="sec" style="padding-top:16px"><b>Interests</b>${L(['Business & Technology','Artificial Intelligence','IT Audit & IT Governance','Technology Risk','Business Analysis'])}</div>
+        <div class="bar">Hard Skills</div>
+        <div class="sec">${L(['Business Process Analysis','Requirements Engineering','Risk Identification','Role-Based Access Control (RBAC)','Financial Administration','Business Analysis','UI/UX Design','System Analyst'])}</div></div>
+      <div class="card"><div class="ch">Technical Tools</div><div class="tools">${TOOLS.map(t=>im('t_'+t,'',t)).join('')}</div></div>
+    </div>
+  </div>
+  <div class="contact">
+    <a href="mailto:fedrick.larsson@gmail.com">${SVG.mail}fedrick.larsson@gmail.com</a>
+    <a href="tel:+628117772789">${SVG.tel}+62811-777-2789</a>
+    <a href="https://www.linkedin.com/in/fedrick-larsson-0bb548320" target="_blank" rel="noopener">${SVG.in}LinkedIn</a>
+    <a href="https://www.instagram.com/fedr1ck_l" target="_blank" rel="noopener">${SVG.ig}@fedr1ck_l</a>
+  </div>
+</div>`}
+
+const cards = (a,pad)=>`<div class="grid">${a.map(c=>`<article class="card"><div class="ch">${c.h}</div><div class="cb">${c.img.map(i=>im(i)).join('')}<p class="t">${c.t}</p>${c.d?`<p class="d">${c.d}</p>`:''}</div></article>`).join('')}</div>`;
+
+const project = ()=>`<div class="grid two">${PROJECTS.map(p=>`<article class="card"><div class="ch">${p.h}</div><div class="cb">${p.s?`<p class="sub">${p.s}</p>`:''}${im(p.img,'wide',p.h)}<p class="sub">Overview</p><p class="d">${p.d}</p><p class="sub">Link</p><p class="d"><a href="${p.link}" target="_blank" rel="noopener">${p.link}</a></p></div></article>`).join('')}</div>`;
+
+const pro = ()=>`<div class="grid two">${PRO.map(p=>`<article class="card"><div class="ch">${p.h}</div><div class="cb"><div class="row"><span class="sub">${p.org}</span><span class="sub">${p.date}</span></div><div class="ph2">${p.img.map(i=>im(i)).join('')}</div><p class="sub">Overview</p><p class="d">${p.ov}</p><p class="sub">Impact</p>${'<ul class="d">'+p.imp.map(x=>`<li>${x}</li>`).join('')+'</ul>'}</div></article>`).join('')}</div>`;
+
+const ach = ()=>cards(ACH)+`<section class="card certs" style="margin-top:24px"><div class="ch">CERTIFICATIONS</div><div class="cg">${CERTS.map(c=>`<a href="assets/${c}.webp" target="_blank" rel="noopener">${im(c,'','Certificate')}</a>`).join('')}</div></section>`;
+
+const VIEWS = {about, org:()=>cards(ORG), project, pro, ach};
+$('#nav').innerHTML = TABS.map(([k,n])=>`<button data-t="${k}">${n}</button>`).join('');
+$('#main').innerHTML = TABS.map(([k])=>`<section class="panel" id="${k}">${VIEWS[k]()}</section>`).join('');
+
+function show(k,scroll){
+  if(!VIEWS[k]) k='about';
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id===k));
+  document.querySelectorAll('nav button').forEach(b=>{const on=b.dataset.t===k;b.classList.toggle('on',on);if(on)b.scrollIntoView({inline:'center',block:'nearest'})});
+  if(scroll) $('#'+k).scrollIntoView();
+}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{history.replaceState(null,'','#'+b.dataset.t);show(b.dataset.t,true)});
+addEventListener('hashchange',()=>show(location.hash.slice(1),true));
+show(location.hash.slice(1),false);
+</script>
+</body>
+</html>
